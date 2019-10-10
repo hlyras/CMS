@@ -7,11 +7,11 @@ const productController = require('../controller/product');
 router.get('/', productController.list);
 router.get('/code/:code', productController.findByCode);
 router.get('/id/:id', productController.findById);
+router.get('/filter', productController.filter);
 
 router.get('/config', productController.config);
 router.post('/save', productController.save);
 router.post('/get', productController.get);
-router.post('/filter', productController.filter);
 router.delete('/remove', productController.remove);
 router.post('/addImage', productController.addImage);
 router.delete('/removeImage', productController.removeImage);

@@ -22,6 +22,22 @@ const productController = {
 
 		res.send(product);
 	},
+	filter: async (req, res) => {
+		if(isNaN(req.query.code) || req.query.code < 0 || req.query.code > 9999){
+			req.query.code = "";
+		};
+
+		if(req.query.code){
+			let product = await Product.findByCode(req.query.code);
+			res.send({ location: req.query.product_location, products: product });
+		} else {
+			const product = {
+				color: req.query.color
+			};
+			let products = await Product.filter(product);
+			res.send({ location: req.query.product_location, products: products });
+		};
+	},
 
 	// PRODUCTS APLICATION CONTROLLERS
 	index: async (req, res) => {
@@ -86,22 +102,22 @@ const productController = {
 
 		res.send({ product });
 	},
-	filter: async (req, res) => {
-		if(isNaN(req.body.product_code) || req.body.product_code < 0 || req.body.product_code > 9999){
-			req.body.product_code = "";
-		};
+	// filter: async (req, res) => {
+	// 	if(isNaN(req.body.product_code) || req.body.product_code < 0 || req.body.product_code > 9999){
+	// 		req.body.product_code = "";
+	// 	};
 
-		if(req.body.product_code){
-			let product = await Product.findByCode(req.body.product_code);
-			res.send({ location: req.body.product_location, products: product });
-		} else {
-			const product = {
-				color: req.body.product_color
-			};
-			let products = await Product.filter(product);
-			res.send({ location: req.body.product_location, products: products });
-		};
-	},
+	// 	if(req.body.product_code){
+	// 		let product = await Product.findByCode(req.body.product_code);
+	// 		res.send({ location: req.body.product_location, products: product });
+	// 	} else {
+	// 		const product = {
+	// 			color: req.body.product_color
+	// 		};
+	// 		let products = await Product.filter(product);
+	// 		res.send({ location: req.body.product_location, products: products });
+	// 	};
+	// },
 	remove: async (req, res) => {
 		await Product.remove(req.body.product_code);
 		res.send({ done: 'Produto excluído com sucesso!' });
