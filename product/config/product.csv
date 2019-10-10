@@ -1,0 +1,133 @@
+"id";"cod";"name";"category";"color";"size";"amount";"value"
+3;1;"Close";"Colete";"pt";"P";0;150.0
+4;51;"Close";"Colete";"vd";"P";0;150.0
+5;101;"Close";"Colete";"tan";"P";0;150.0
+6;2;"Close";"Colete";"pt";"M";0;150.0
+7;3;"Close";"Colete";"pt";"G";0;150.0
+8;4;"Plate Carrier";"Colete";"pt";"ST";0;180.0
+9;54;"Plate Carrier";"Colete";"vd";"ST";0;180.0
+10;104;"Plate Carrier";"Colete";"tan";"ST";0;180.0
+11;52;"Close";"Colete";"vd";"M";0;150.0
+12;53;"Close";"Colete";"vd";"G";0;150.0
+13;102;"Close";"Colete";"tan";"M";0;150.0
+14;103;"Close";"Colete";"tan";"G";0;150.0
+16;55;"JA3";"Colete";"vd";"P";0;180.0
+17;6;"JA3";"Colete";"pt";"M";0;200.0
+18;7;"JA3";"Colete";"pt";"G";0;200.0
+20;56;"JA3";"Colete";"vd";"M";0;180.0
+21;57;"JA3";"Colete";"vd";"G";0;180.0
+22;105;"JA3";"Colete";"tan";"P";0;180.0
+23;106;"JA3";"Colete";"tan";"M";0;180.0
+24;107;"JA3";"Colete";"tan";"G";0;180.0
+25;5;"JA3";"Colete";"pt";"P";0;200.0
+26;501;"P. Camelback";"Peça_mod";"pt";"ST";0;40.0
+27;502;"Bolsa Pequena";"Peça_mod";"pt";"ST";0;20.0
+28;503;"Bolsa Média";"Peça_mod";"pt";"ST";0;20.0
+29;504;"Bolsa Grande";"Peça_mod";"pt";"ST";0;35.0
+30;505;"P.C. Fuzil Velc";"Peça_mod";"pt";"ST";0;20.0
+31;506;"P.C. Fuzil TT";"Peça_mod";"pt";"ST";0;20.0
+32;507;"P.C. Fuzil Elás";"Peça_mod";"pt";"ST";0;20.0
+33;508;"P.C.Pistola Dup";"Peça_mod";"pt";"ST";0;20.0
+34;509;"P.C. SMT/UMP";"Peça_mod";"pt";"ST";0;20.0
+35;510;"P.C. Calibre 12";"Peça_mod";"pt";"ST";0;20.0
+36;511;"Coldre Unive. D";"Peça_mod";"pt";"ST";0;15.0
+37;512;"Coldre Unive. C";"Peça_mod";"pt";"ST";0;15.0
+38;513;"P. Rádio / HT";"Peça_mod";"pt";"ST";0;15.0
+39;551;"P. Camelback";"Peça_mod";"vd";"ST";0;40.0
+40;552;"Bolsa Pequena";"Peça_mod";"vd";"ST";0;20.0
+41;553;"Bolsa Média";"Peça_mod";"vd";"ST";0;20.0
+42;554;"Bolsa Grande";"Peça_mod";"vd";"ST";0;30.0
+43;555;"P.C. Fuzil Velc";"Peça_mod";"vd";"ST";0;20.0
+44;556;"P.C. Fuzil TT";"Peça_mod";"vd";"ST";0;20.0
+45;557;"P.C. Fuzil Elás";"Peça_mod";"vd";"ST";0;20.0
+46;558;"P.C.Pistola Dup";"Peça_mod";"vd";"ST";0;20.0
+47;559;"P.C. SMT/UMP";"Peça_mod";"vd";"ST";0;20.0
+48;560;"P.C. Calibre 12";"Peça_mod";"vd";"ST";0;20.0
+49;561;"Coldre Unive. D";"Peça_mod";"vd";"ST";0;15.0
+50;562;"Coldre Unive. C";"Peça_mod";"vd";"ST";0;15.0
+51;563;"P. Rádio / HT";"Peça_mod";"vd";"ST";0;15.0
+52;601;"P. Camelback";"Peça_mod";"tan";"ST";0;40.0
+53;602;"Bolsa Pequena";"Peça_mod";"tan";"ST";0;20.0
+54;603;"Bolsa Média";"Peça_mod";"tan";"ST";0;20.0
+55;604;"Bolsa Grande";"Peça_mod";"tan";"ST";0;30.0
+56;605;"P.C. Fuzil Velc";"Peça_mod";"tan";"ST";0;20.0
+57;606;"P.C. Fuzil TT";"Peça_mod";"tan";"ST";0;20.0
+58;607;"P.C. Fuzil Elás";"Peça_mod";"tan";"ST";0;20.0
+59;608;"P.C.Pistola Dup";"Peça_mod";"tan";"ST";0;20.0
+60;609;"P.C. SMT/UMP";"Peça_mod";"tan";"ST";0;20.0
+61;610;"P.C. Calibre 12";"Peça_mod";"tan";"ST";0;20.0
+62;611;"Coldre Unive. D";"Peça_mod";"tan";"ST";0;15.0
+63;612;"Coldre Unive. C";"Peça_mod";"tan";"ST";0;15.0
+64;613;"P. Rádio / HT";"Peça_mod";"tan";"ST";0;15.0
+65;1001;"Universal Per D";"Coldre";"pt";"ST";0;35.0
+66;1002;"Universal Per C";"Coldre";"pt";"ST";0;35.0
+67;1051;"Universal Per D";"Coldre";"vd";"ST";0;35.0
+68;1052;"Universal Per C";"Coldre";"vd";"ST";0;35.0
+69;1101;"Universal Per D";"Coldre";"tan";"ST";0;35.0
+70;1102;"Universal Per C";"Coldre";"tan";"ST";0;35.0
+71;1501;"Tático Fiv Plas";"Cinto";"pt";"ST";0;35.0
+72;1502;"NA";"Cinto";"pt";"ST";0;35.0
+73;1551;"Tático Fiv Plas";"Cinto";"vd";"ST";0;35.0
+74;1552;"NA";"Cinto";"vd";"ST";0;35.0
+75;1601;"Tático Fiv Plas";"Cinto";"tan";"ST";0;35.0
+76;1602;"NA";"Cinto";"tan";"ST";0;35.0
+77;2001;"Tático";"Bornal";"pt";"ST";0;55.0
+78;2002;"3 PST";"Bornal";"pt";"ST";0;55.0
+79;2051;"Tático";"Bornal";"vd";"ST";0;55.0
+80;2052;"3 PST";"Bornal";"vd";"ST";0;55.0
+81;2101;"Tático";"Bornal";"tan";"ST";0;55.0
+82;2102;"3 PST";"Bornal";"tan";"ST";0;55.0
+83;2501;"Tática 1 ponto";"Bandolei";"pt";"ST";0;55.0
+84;2551;"Tática 1 ponto";"Bandolei";"vd";"ST";0;55.0
+85;2601;"Tática 1 ponto";"Bandolei";"tan";"ST";0;55.0
+86;514;"P. Algemas";"Peça_mod";"pt";"ST";0;15.0
+87;564;"P. Algemas";"Peça_mod";"vd";"ST";0;15.0
+88;614;"P. Algemas";"Peça_mod";"tan";"ST";0;15.0
+92;5401;"Shemagh simples";"Shemagh";"S/C";"ST";0;45.0
+93;3001;"Mochila pequena";"Mochila";"S/C";"ST";0;110.0
+94;3002;"Mochila média";"Mochila";"S/C";"ST";0;120.0
+95;3003;"Mochila Grande";"Mochila";"S/C";"ST";0;200.0
+96;5801;"Sup. Cel braço ";"Sup. Cel";"S/C";"ST";0;15.0
+97;5701;"Kit cantil ";"Cantil";"S/C";"ST";0;75.0
+98;3701;"Ref camel 2.5L";"Ref. Cam";"S/C";"ST";0;45.0
+99;3901;"Farda exército";"Farda";"cvd";"P";0;210.0
+100;3902;"Farda Exército";"Farda";"cvd";"M";0;210.0
+101;3903;"Farda Exército ";"Farda";"cvd";"G";0;210.0
+102;3904;"Farda Exército";"Farda";"cvd";"GG";0;210.0
+103;4701;"Gorro";"Gorro";"S/C";"ST";0;20.0
+104;4001;"Faca Tática";"Faca";"S/C";"ST";0;80.0
+105;4101;"Canivete Pequen";"Canivete";"S/C";"ST";0;0.0
+106;4102;"Canivete médio";"Canivete";"S/C";"ST";0;35.0
+107;4103;"Canivete Grande";"Canivete";"S/C";"ST";0;55.0
+108;4104;"Multiuso talher";"Canivete";"S/C";"ST";0;35.0
+109;4901;"Bússola simples";"Bússola";"S/C";"ST";0;35.0
+110;4201;"Mini lanterna";"Lanterna";"S/C";"ST";0;10.0
+111;4202;"Lanterna Pequen";"Lanterna";"S/C";"ST";0;20.0
+112;4203;"Lanterna Choque";"Lanterna";"S/C";"ST";0;55.0
+113;4204;"Lanterna Tática";"Lanterna";"S/C";"ST";0;65.0
+114;5001;"Par de Bombacho";"Bombacho";"S/C";"ST";0;5.0
+115;5101;"Cadeado pequeno";"Cadeado";"S/C";"ST";0;20.0
+116;4401;"Pul c/ Bússola";"Pulseira";"S/C";"ST";0;35.0
+117;4801;"Capacete Básico";"Capacete";"S/C";"ST";0;220.0
+118;5301;"Másc. Tática";"Máscara";"S/C";"ST";0;45.0
+119;4501;"Boné simples";"Boné";"S/C";"ST";0;40.0
+120;3801;"Fiel Aspiral";"Fiel";"S/C";"ST";0;25.0
+121;5501;"Gandoleta";"Gandolet";"S/C";"ST";0;135.0
+122;4301;"Moch. Camelback";"Camelbac";"S/C";"ST";0;105.0
+123;5601;"Bolsa Velame";"Bolsa";"S/C";"ST";0;35.0
+124;4601;"Chapéu caçador";"Chapéu";"S/C";"ST";0;35.0
+125;3601;"Kit cot. e joel";"Cot/joel";"pt";"ST";0;60.0
+126;3602;"Kit Cot. e Joel";"Cot/joel";"vd";"ST";0;60.0
+127;3603;"Kit Cot. e Joel";"Cot/joel";"tan";"ST";0;60.0
+128;1503;"Black Hawk";"Cinto";"pt";"ST";0;60.0
+129;1553;"Black Hawk";"Cinto";"vd";"ST";0;60.0
+130;1603;"Black Hawk";"Cinto";"tan";"ST";0;60.0
+131;1003;"Mini Coldre";"Coldre";"pt";"ST";0;20.0
+132;1053;"Mini Coldre";"Coldre";"vd";"ST";0;20.0
+133;1103;"Mini Coldre";"Coldre";"tan";"ST";0;20.0
+134;1504;"Prot. Acolchoad";"Cinto";"pt";"ST";0;15.0
+135;1554;"Prot. Acolchoad";"Cinto";"vd";"ST";0;15.0
+136;1604;"Prot. Acolchoad";"Cinto";"tan";"ST";0;15.0
+137;5901;"Corta Vento";"Casaco";"S/C";"ST";0;0.0
+138;5902;"Casaco tático";"Casaco";"S/C";"ST";0;220.0
+139;5903;"Malvinão";"Casaco";"S/C";"ST";0;150.0
