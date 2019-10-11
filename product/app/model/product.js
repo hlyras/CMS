@@ -52,6 +52,11 @@ Product.findByCode = async (code) => {
 	return db(query);
 };
 
+Product.findByName = async (name) => {
+	let query = "SELECT * FROM product.products WHERE name like '%"+name+"%';";
+	return db(query);
+};
+
 Product.filter = async (product) => {
 	if(product.color){
 		var query = "SELECT * FROM product.products WHERE color='"+product.color+"' ORDER BY code ASC;";

@@ -27,16 +27,24 @@ const productController = {
 			req.query.code = "";
 		};
 
-		if(req.query.code){
-			let product = await Product.findByCode(req.query.code);
+		console.log(req.query.name);
+
+		if(req.query.name){
+			let product = await Product.findByName(req.query.name);
 			res.send({ location: req.query.product_location, products: product });
 		} else {
-			const product = {
-				color: req.query.color
+			if(req.query.code){
+				let product = await Product.findByCode(req.query.code);
+				res.send({ location: req.query.product_location, products: product });
+			} else {
+				const product = {
+					color: req.query.color
+				};
+				let products = await Product.filter(product);
+				res.send({ location: req.query.product_location, products: products });
 			};
-			let products = await Product.filter(product);
-			res.send({ location: req.query.product_location, products: products });
 		};
+
 	},
 
 	// PRODUCTS APLICATION CONTROLLERS
