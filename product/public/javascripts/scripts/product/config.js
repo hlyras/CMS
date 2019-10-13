@@ -77,7 +77,11 @@ function productColorList(form, location){
 				html += "<option value='"+color.shortcut+"'>"+color.name+"</option>";
 			});
 
-			document.getElementById("product-"+location+"-color").innerHTML = html;
+			if(location == "create"){
+				document.getElementById("product-create-color").innerHTML = html;
+			} else {
+				document.getElementById("product-color").innerHTML = html;
+			};
 		}
 	});
 };

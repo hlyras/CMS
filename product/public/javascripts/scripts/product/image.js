@@ -1,21 +1,20 @@
-function productAddImage(id, code){
-	let image = prompt("Preencha com a URL da imagem");
-	if(image){
-		if(image.length < 7){
+function productAddImage(product_id){
+	let image_url = prompt("Preencha com a URL da imagem");
+	if(image_url){
+		if(image_url.length < 7){
 			return alert('URL inválida!');
 		};
-		if(image.length > 200){
+		if(image_url.length > 200){
 			return alert('URL inválida!');
 		};
-		checkImage(image);
-		let img = '<img src="'+ image +'" />';
+		let img = '<img src="'+ image_url +'" />';
 		$(img).on("load", () =>  {
 			$.ajax({
-				url: '/addImage',
+				url: '/addimage',
 				method: 'post',
 				data: {
-					product_id: id,
-					image_url: image
+					product_id: product_id,
+					image_url: image_url
 				},
 				success: (response) => {
 					if(response.unauthorized){
@@ -24,7 +23,7 @@ function productAddImage(id, code){
 						return;
 					};
 
-					showProduct(code);
+					showProduct(product_id);
 					alert(response.done);
 				}
 			});
@@ -36,15 +35,12 @@ function productAddImage(id, code){
 	};
 };
 
-function productRemoveImage(id, code){
+function productRemoveImage(image_id, product_id){
 	let r = confirm("Deseja realmente excluir a image?");
 	if(r){
 		$.ajax({
-			url: '/removeImage',
+			url: '/removeimage?id='+image_id,
 			method: 'delete',
-			data: {
-				image_id: id
-			},
 			success: function(response){
 				if(response.unauthorized){
 					alert(response.unauthorized);
@@ -52,14 +48,14 @@ function productRemoveImage(id, code){
 					return;
 				};
 
-				showProduct(code);
+				showProduct(product_id);
 				alert(response.done);
 			}
 		});
 	};
 };
 
-function productImagePagination(images, product_code){
+function productImagePagination(images, product_id){
 	let pageSize = 1;
 	let page = 0;
 
@@ -69,8 +65,8 @@ function productImagePagination(images, product_code){
 	    for (let i = page * pageSize; i < images.length && i < (page + 1) * pageSize;i++){
 			htmlImage += "<img src='"+images[i].url+"' style='width:280px;height:320px;'>";
 			htmlImage += "<div clas='box-1'>";
-			// htmlImage += "<br>";
-			// htmlImage += "<button class='btn-generic-big' onclick='productRemoveImage("+images[i].id+", "+product_code+")'>Excluir</button>";
+			htmlImage += "<br>";
+			htmlImage += "<button class='btn-generic-big' onclick='productRemoveImage("+images[i].id+", "+product_id+")'>Excluir</button>";
 			htmlImage += "</div>";
 		};
 

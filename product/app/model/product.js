@@ -38,7 +38,7 @@ Product.list = async () => {
 };
 
 Product.getImages = async (id) => {
-	let query = "SELECT * FROM backup.product_image WHERE product_id='"+id+"';";
+	let query = "SELECT * FROM product.product_image WHERE product_id='"+id+"';";
 	return db(query);
 };
 
@@ -66,13 +66,18 @@ Product.filter = async (product) => {
 	return db(query);
 };
 
-Product.remove = async (code) => {
-	let query = "DELETE FROM product.products WHERE code='"+code+"';";
+Product.remove = async (id) => {
+	let query = "DELETE FROM product.products WHERE id='"+id+"';";
 	return db(query);
 };
 
-Product.removeImage = async (id) => {
-	let query = "DELETE FROM backup.product_image WHERE id='"+id+"';";
+Product.removeProductImages = async (product_id) => {
+	let query = "DELETE FROM product.product_image WHERE product_id='"+product_id+"';";
+	return db(query);
+};
+
+Product.removeImage = async (image_id) => {
+	let query = "DELETE FROM product.product_image WHERE id='"+image_id+"';";
 	return db(query);
 };
 

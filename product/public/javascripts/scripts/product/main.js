@@ -41,10 +41,13 @@ $(function(){
 		event.preventDefault();
 		let btn = $(this);btn.attr('disabled', true);
 
+		let name = document.getElementById("product-filter-form").elements.namedItem('name').value;
+		let code = document.getElementById("product-filter-form").elements.namedItem('code').value;
+		let color = document.getElementById("product-filter-form").elements.namedItem('color').value;
+
 		$.ajax({
-			url: '/filter',
-			method: 'post',
-			data: $("#product-filter-form").serialize(),
+			url: "/filter?name="+name+"&code="+code+"&color="+color,
+			method: 'get',
 			success: (response) => {
 				if(response.unauthorized){
 					alert(response.unauthorized);
@@ -56,49 +59,29 @@ $(function(){
 				let page = 0;
 
 				function paging(){
-					if(products.length ){
-						if(response.location == 'admin'){
-							renderAdminProducts(response.location, products, pageSize, page);
-						} else if(response.location == 'catalog'){
-							renderCatalogProducts(response.location, products, pageSize, page);
-						} else if(response.location == 'factory-storage'){
-							renderFactoryStorageProducts(response.location, products, pageSize, page);
-						} else if(response.location == 'kart'){
-							renderKartProducts(response.location, products, pageSize, page);
-						} else if(response.location == 'cashier-kart'){
-							renderCashierKartProducts(response.location, products, pageSize, page);
-						};
+					if(products.length){
+						renderProducts(products, pageSize, page);
 					} else {
-						if(response.location == 'admin'){
-							clearProductTable(response.location);
-						} else if(response.location == 'catalog'){
-							clearProductTable(response.location);
-						} else if(response.location == 'factory-storage'){
-							clearProductTable(response.location);
-						} else if(response.location == 'kart'){
-							alert("Não há produtos com estas categorias");
-						} else if(response.location == 'cashier-kart'){
-							alert("Não há produtos com estas categorias");
-						};
+						clearProductTable(response.location);
 					};
 				};
 
 				btn.attr('disabled', false);
 
 				function buttonsPaging(){
-					$('#'+response.location+'ProductNext').prop('disabled', products.length <= pageSize || page >= products.length / pageSize - 1);
-					$('#'+response.location+'ProductPrevious').prop('disabled', products.length <= pageSize || page == 0);
+					$('#productNext').prop('disabled', products.length <= pageSize || page >= products.length / pageSize - 1);
+					$('#productPrevious').prop('disabled', products.length <= pageSize || page == 0);
 				};
 
 				$(function(){
-				    $('#'+response.location+'ProductNext').click(function(){
+				    $('#productNext').click(function(){
 				        if(page < products.length / pageSize - 1){
 				            page++;
 				            paging();
 				            buttonsPaging();
 				        };
 				    });
-				    $('#'+response.location+'ProductPrevious').click(function(){
+				    $('#productPrevious').click(function(){
 				        if(page > 0){
 				            page--;
 				            paging();
@@ -114,7 +97,6 @@ $(function(){
 });
 
 function displayProductFilterForm(form, location){
-	console.log('ok');
 	css.displayForm(form);
 	// productCategoryList(form, location);
 	productColorList(form, location);
@@ -122,11 +104,8 @@ function displayProductFilterForm(form, location){
 
 function editProduct(code){
 	$.ajax({
-		url: '/get',
-		method: 'post',
-		data: { 
-			product_code: code
-		},
+		url: '/code/'+code,
+		method: 'get',
 		success: (response) => {
 			displayProductFilterForm('product-create-form', 'create');
 
@@ -143,15 +122,12 @@ function editProduct(code){
 	});
 };
 
-function removeProduct(code){
+function removeProduct(id){
 	let r = confirm('Deseja realmente excluir o produto?');
 	if(r){
 		$.ajax({
-			url: '/remove',
+			url: '/remove?id='+id,
 			method: 'delete',
-			data: {
-				product_code: code
-			},
 			success: function(response){
 				if(response.unauthorized){
 					alert(response.unauthorized);
@@ -159,6 +135,7 @@ function removeProduct(code){
 					return;
 				};
 
+				hideProduct();
 				alert(response.done);
 				$("#product-filter-form").submit();
 			}
@@ -166,13 +143,10 @@ function removeProduct(code){
 	};
 };
 
-function showProduct(code){
+function showProduct(id){
 	$.ajax({
-		url: '/get',
-		method: 'post',
-		data: { 
-			product_code: code
-		},
+		url: '/id/'+id,
+		method: 'get',
 		success: (response) => {
 			if(response.unauthorized){
 				alert(response.unauthorized);
@@ -182,11 +156,11 @@ function showProduct(code){
 
 			let html = "";
 			html += "<tr>";
-			html += "<td id='show-product-id'>"+response.product[0].code+"</td>";
+			html += "<td>"+response.product[0].code+"</td>";
 			html += "<td>"+response.product[0].name+"</td>";
 			html += "<td>"+response.product[0].size+"</td>";
 			html += "<td>"+response.product[0].color+"</td>";
-			html += "<td><a onclick='productAddImage("+response.product[0].id+", "+response.product[0].code+")'>add img</a></td>";
+			html += "<td><a onclick='productAddImage("+response.product[0].id+")'>add img</a></td>";
 			html += "<td><a onclick='hideProduct()'>Esconder</a></td>";
 			html += "</tr>";
 
@@ -194,7 +168,7 @@ function showProduct(code){
 			document.getElementById('product-show-box').style.display = 'block';
 
 			if(response.product[0].images.length){
-				productImagePagination(response.product[0].images, response.product[0].code);
+				productImagePagination(response.product[0].images, response.product[0].id);
 			} else {
 				document.getElementById('product-image-show').innerHTML = "SEM IMAGENS";
 				document.getElementById('imagePageNumber').innerHTML = '0';

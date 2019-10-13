@@ -1,32 +1,35 @@
+const request = require("request-promise");
+
 const apiController = {
 	get: (req, res) => {
+		request("localhost:3000/products");
 		res.json({
-			message: 'Sucessful GET'
+			message: "Sucessful GET"
 		});
 	},
 	post: (req, res) => {
 		res.json({
-			message: 'Sucessful POST'
+			message: "Sucessful POST"
 		});
 	},
 	put: (req, res) => {
 		res.json({
-			message: 'Sucessful PUT'
+			message: "Sucessful PUT"
 		});
 	},
 	patch: (req, res) => {
 		res.json({
-			message: 'Sucessful PATCH'
+			message: "Sucessful PATCH"
 		});
 	},
 	remove: (req, res) => {
 		res.json({
-			message: 'Sucessful DELETE'
+			message: "Sucessful DELETE"
 		});
 	},
 	options: (req, res) => {
 		res.json({
-			message: 'Sucessful OPTIONS'
+			message: "Sucessful OPTIONS"
 		});
 	}
 };
