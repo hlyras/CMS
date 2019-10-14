@@ -10,6 +10,7 @@ router.get('/id/:id', productController.findById);
 router.get('/code/:code', productController.findByCode);
 router.get('/name/:name', productController.findByName);
 router.get('/filter', productController.filter);
+router.options('/filter', productController.options);
 router.delete('/remove', productController.remove);
 router.delete('/removeimage', productController.removeImage);
 

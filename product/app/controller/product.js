@@ -13,9 +13,17 @@ const productController = {
 
 	// API CONTROLLERS
 	list: async (req, res) => {
+		// console.log(req.headers.authorization);
 		let products = await Product.list();
-	
-		res.send({ products });
+		products.images = "";
+		for(i in products){
+			let images = await Product.getImages(products[i].id);
+			for(y in images){
+				products[i].image = images[y].url;
+			};
+		};
+		
+		res.send( products );
 	},
 	findById: async (req, res) => {
 		let product = await Product.findById(req.params.id);
@@ -71,10 +79,23 @@ const productController = {
 		
 		res.send({ done: 'Produto excluído com sucesso!' });
 	},
+	addImage: async (req, res) => {
+		const image = {
+			product_id: req.query.product_id,
+			url: req.query.image_url
+		};
+
+		await Product.addImage(image);
+	
+		res.send({ done: 'Imagem adicionada com sucesso!' });
+	},
 	removeImage: async (req, res) => {
 		await Product.removeImage(req.query.id);
 
 		res.send({ done: 'Imagem excluída!' });
+	},
+	options: (req, res, next) => {
+		res.status(204).send(""); // no content
 	},
 
 	/////////////////////////////////////////////
@@ -114,16 +135,7 @@ const productController = {
 
 		res.send({ done: 'Produto cadastrado com sucesso!', product: newProduct });
 	},
-	addImage: async (req, res) => {
-		const image = {
-			product_id: req.body.product_id,
-			url: req.body.image_url
-		};
-
-		await Product.addImage(image);
 	
-		res.send({ done: 'Imagem adicionada com sucesso!' });
-	},
 	categorySave: async (req, res) => {
 		const category = {
 			name: req.body.product_category_name,
