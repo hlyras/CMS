@@ -1,11 +1,5 @@
 const Product = require('../model/product');
 
-// PATTERNS
-
-// 1 - If the function can only return 1 product then
-// will response '{ product }' else 
-// will response '{ products }'
-
 const productController = {
 	index: async (req, res) => {
 		res.render('index');
@@ -13,15 +7,7 @@ const productController = {
 
 	// API CONTROLLERS
 	list: async (req, res) => {
-		// console.log(req.headers.authorization);
 		let products = await Product.list();
-		products.images = "";
-		for(i in products){
-			let images = await Product.getImages(products[i].id);
-			for(y in images){
-				products[i].image = images[y].url;
-			};
-		};
 		
 		res.send( products );
 	},
@@ -149,7 +135,7 @@ const productController = {
 	categoryList: async (req, res) => {
 		const categories = await Product.categoryList();
 
-		res.send({ categories: categories });
+		res.send({ categories });
 	},
 	colorSave: async (req, res) => {
 		const color = {
@@ -164,7 +150,7 @@ const productController = {
 	colorList: async (req, res) => {
 		const colors = await Product.colorList();
 
-		res.send({ colors: colors });
+		res.send({ colors });
 	}
 };
 

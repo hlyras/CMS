@@ -92,12 +92,12 @@ Product.categoryList = async () => {
 };
 
 Product.colorSave = async (color) => {
-	let query = "INSERT INTO backup.product_color (name, shortcut) VALUES ('"+color.name+"','"+color.shortcut+"');";
+	let query = "INSERT INTO wtproduct.product_color (name, shortcut) VALUES ('"+color.name+"','"+color.shortcut+"');";
 	return db(query);
 };
 
 Product.colorList = async () => {
-	let query = "SELECT * FROM backup.product_color;";
+	let query = "SELECT * FROM wtproduct.product_color;";
 	return db(query);
 };
 
