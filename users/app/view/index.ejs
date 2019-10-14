@@ -1,0 +1,37 @@
+<html>
+	<head>
+        <% include ./partials/head %>
+	</head>
+	<body>
+		<header>
+			<a href="/"><img src="/images/favicon.png" class="favicon"></a>
+			<div>
+				<a href="/signup">Desejo ser parceiro</a>
+    			<!-- <a onclick="let r = confirm('deseja sair?');if(r==true){window.location.href='/logout'}">Sair</a> -->
+			</div>
+		</header>
+		<section>
+			<div class="container">
+				<div class="box-1">
+					Loja de representantes J.A Rio Militar
+				</div>
+                <div class="box-1">
+                    <form action="/user/login" method="post">
+                        <div class="menu-box">
+                            <h1 class="title-soft">Faça seu login</h1>
+                            <span class="underline-title"></span>
+                            <p>Username</p>
+                            <input type="text" class="btn-generic-menu-big" name="username" autocomplete="off">
+                            <p>Senha</p>
+                            <input type="password" class="btn-generic-menu-big" name="password" autocomplete="off">
+                            <button type="submit" class="btn-generic-menu-big">Login</button>
+                        </div>
+                    </form>
+                </div>
+			</div>
+		</section>
+	</body>
+	<footer>
+        <% include ./partials/footer %>
+	</footer>
+</html>

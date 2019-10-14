@@ -1,0 +1,226 @@
+a {
+	text-decoration: none;
+	cursor: pointer;
+	color: black;
+}
+
+.link-generic {
+	text-decoration: underline;
+}
+
+.favicon {
+	border-radius: 3px;
+	width: 70px;
+	height: 50px;
+}
+
+.alert-msg {
+	background-color:#f99;
+	height: auto;
+	width:300px;
+	padding: 5px;
+	margin:auto;
+	margin-top: 15px;
+	margin-bottom: 15px;
+	border-radius:3px;
+	box-sizing: border-box;
+}
+
+.title-soft {
+	font-size: 16px;
+	padding: 10px;
+}
+
+.underline-title {
+	display: inline-block;
+	position: relative;
+	margin-bottom: 20px;
+}
+
+.underline-title::after {
+	content: '';
+	height: 1px;
+	width: 100%;
+	background-color: #e1e1e1;
+	position: absolute;
+	left: 0;
+	bottom: -10;
+}
+
+.underline-generic {
+	display: inline-block;
+	position: relative;
+	margin-bottom: 10px;
+}
+
+.underline-generic::after {
+	content: '';
+	height: 1px;
+	width: 50%;
+	background-color: #e1e1e1;
+	position: absolute;
+	left: 25%;
+	bottom: -5;
+}
+
+.btn-table {
+     background:none;
+     color:inherit;
+     border:none; 
+     padding:5px;
+     font: inherit;
+     /*border is optional*/
+     border:1px solid #e1e1e1;
+     cursor: pointer;
+}
+
+.btn-generic-small {
+	font-size: 12px;
+	width:75px;
+	height: 30px;
+	margin: auto;
+	font-family: "HelveticaNeue-Light";
+	background-color: #fff;
+	border-radius: 5px;
+}
+
+.btn-generic-medium {
+	font-size: 12px;
+	width:150px;
+	height: 30px;
+	margin: auto;
+	font-family: "HelveticaNeue-Light";
+	background-color: #fff;
+	border-radius: 5px;
+}
+
+.btn-generic-big {
+	font-size: 12px;
+	width:200px;
+	height: 30px;
+	margin: auto;
+	font-family: "HelveticaNeue-Light";
+	background-color: #fff;
+	border-radius: 5px;
+}
+
+.btn-generic-date-day {
+	font-size: 12px;
+	width: 50px;
+	height: 30px;
+	margin: auto;
+	margin-bottom: 10px;
+}
+
+.btn-generic-date-month {
+	font-size: 12px;
+	width: 90px;
+	height: 30px;
+	margin: auto;
+	margin-bottom: 10px;
+}
+
+.btn-generic-date-year {
+	font-size: 12px;
+	width: 70px;
+	height: 30px;
+	margin: auto;
+	margin-bottom: 10px;
+}
+
+.btn-generic-menu-small {
+	font-size: 12px;
+	width:100px;
+	height: 30px;
+	margin: auto;
+	margin-bottom: 10px;
+}
+
+.btn-generic-menu-medium {
+	font-size: 12px;
+	width:150px;
+	height: 30px;
+	margin: auto;
+	margin-bottom: 10px;
+}
+
+.btn-generic-menu-big {
+	font-size: 12px;
+	width:200px;
+	height: 30px;
+	margin: auto;
+	margin-bottom: 10px;
+}
+
+.span-generic {
+
+}
+
+.span-menu {
+	border-radius: 3px;
+	padding-top: 5px;
+	padding-bottom: 5px;
+	cursor: pointer;
+	background-color: #f0f0f0;
+	border: 1px solid #e1e1e1;
+}
+
+.span-menu:hover {
+	background-color: #f9f9f9;
+	border-radius: 3px;
+	border: 1px solid #e1e1e1;
+}
+
+.tbl-generic {
+	border: 1px solid #e1e1e1;
+	font-size: 12px;
+}
+
+.tbl-generic tr td {
+	border: 1px solid #e1e1e1;
+	padding: 5px;
+}
+
+.tbl-info {
+	border: 1px solid #e1e1e1;
+	font-size: 12px;
+}
+
+.tbl-info tr td {
+	border: 1px solid #e1e1e1;
+	padding-top: 5px;
+	padding-bottom: 5px;
+	padding-left: 5px;
+	padding-right: 5px;
+}
+
+.tbl-amount-cell {
+	width:25px;
+}
+
+.cashier-sale-info {
+	padding-right: : 30px;
+}
+
+	.cashier-sale-info tr td {
+		padding: 5px;
+	}
+
+	.discount {
+		font-size: 15px;
+	}
+
+	.totalValue {
+		font-size: 15px;
+	}
+
+	.finalValue {
+		font-size: 30px;
+		font-weight: bold;
+		color: #390;
+	}
+
+.link-btn {
+	font-weight: bold;
+	font-size: 20px;
+}
