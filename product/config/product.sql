@@ -1,5 +1,5 @@
-CREATE DATABASE  IF NOT EXISTS `product` /*!40100 DEFAULT CHARACTER SET latin1 */;
-USE `product`;
+CREATE DATABASE  IF NOT EXISTS `wtproduct` /*!40100 DEFAULT CHARACTER SET latin1 */;
+USE `wtproduct`;
 -- MySQL dump 10.13  Distrib 5.7.27, for Linux (x86_64)
 --
 -- Host: localhost    Database: product
