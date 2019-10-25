@@ -1,6 +1,5 @@
 const partnerController = {
 	signup: async (req, res) => {
-		
 	    res.render('signup');
 	}
 };

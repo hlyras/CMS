@@ -48,7 +48,3 @@ const lib = {
 		return array;
 	}
 };
-
-function displayForm(form){
-
-};

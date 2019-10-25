@@ -15,19 +15,41 @@
 				<div class="box-1">
 					Loja de representantes J.A Rio Militar
 				</div>
-                <div class="box-1">
-                    <form action="/login" method="post">
-                        <div class="menu-box">
-                            <h1 class="title-soft">Faça seu login</h1>
-                            <span class="underline-title"></span>
-                            <p>Username</p>
-                            <input type="text" class="btn-generic-menu-big" name="username" autocomplete="off">
-                            <p>Senha</p>
-                            <input type="password" class="btn-generic-menu-big" name="password" autocomplete="off">
-                            <button type="submit" class="btn-generic-menu-big">Login</button>
-                        </div>
-                    </form>
-                </div>
+                <div class="box-2">
+					<button class="btn-generic-big" onclick="displayProductFilterForm('product-filter-form')">Produtos cadastrados</button>
+					<form id="product-filter-form" class="box-1" style="display:none">
+						<input type="text" name="name" class="btn-generic-small" placeholder="Nome" autocomplete="off">
+						<input type="text" name="code" class="btn-generic-small" placeholder="Cód" autocomplete="off">
+						<select name="color" id="product-color" class="btn-generic-small" autocomplete="off">
+							<option value="">Cor</option>
+						</select>
+						<input type="submit" class="btn-generic-small" value="Filtrar">
+					</form>
+					<br><br>
+					<div id="product-div" style="display:none">
+						<table class="tbl-info" id="product-tbl"></table>
+						<br>
+						<button id="productPrevious" autocomplete="off" disabled>&lsaquo;&lsaquo;</button>
+	                    <span id="productPageNumber"></span>
+	                    <button id="productNext" autocomplete="off" disabled>&rsaquo;&rsaquo;</button>
+					</div>
+				</div>
+				
+				<div class="box-1" id="product-show-box" style="display:none;">
+					<table class="tbl-info" id="product-show-tbl">
+						<tr>
+							<td>Cód</td>
+							<td>Nome</td>
+							<td>Tamanho</td>
+							<td>Cor</td>
+						</tr>
+						<tbody id="product-show-tbody"></tbody>
+					</table>
+					<div class="box-1" id="product-image-show"></div>
+					<button id="imagePrevious" autocomplete="off" disabled>&lsaquo;&lsaquo;</button>
+                    <span id="imagePageNumber"></span>
+                    <button id="imageNext" autocomplete="off" disabled>&rsaquo;&rsaquo;</button>
+				</div>
 			</div>
 		</section>
 	</body>

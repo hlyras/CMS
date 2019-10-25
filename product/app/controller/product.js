@@ -8,17 +8,19 @@ const productController = {
 	// API CONTROLLERS
 	list: async (req, res) => {
 		let products = await Product.list();
-		
+
 		res.send( products );
 	},
 	findById: async (req, res) => {
-		let product = await Product.findById(req.params.id);
-
-		if(product.length){
-			product[0].images = await Product.getImages(product[0].id);
+		try {
+			let product = await Product.findById(req.params.id);
+			if(product.length){
+				product[0].images = await Product.getImages(product[0].id);
+			};
+			res.send({ product });
+		} catch (e) {
+			console.log(e);
 		};
-
-		res.send({ product });
 	},
 	findByCode: async (req, res) => {
 		let product = await Product.findByCode(req.params.code);
@@ -121,7 +123,6 @@ const productController = {
 
 		res.send({ done: 'Produto cadastrado com sucesso!', product: newProduct });
 	},
-	
 	categorySave: async (req, res) => {
 		const category = {
 			name: req.body.product_category_name,

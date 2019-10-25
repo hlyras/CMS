@@ -1,45 +1,102 @@
-function productImagePagination(images, product_id){
-	let pageSize = 1;
-	let page = 0;
+var product_array = [];
 
-	function paging(){
-		let htmlImage = "";
-		
-	    for (let i = page * pageSize; i < images.length && i < (page + 1) * pageSize;i++){
-			htmlImage += "<img src='"+images[i].url+"' style='width:280px;height:320px;'>";
-			htmlImage += "<div clas='box-1'>";
-			htmlImage += "<br>";
-			htmlImage += "<button class='btn-generic-big' onclick='productRemoveImage("+images[i].id+", "+product_id+")'>Excluir</button>";
-			htmlImage += "</div>";
-		};
+$(function(){
+	$("#product-filter-form").on('submit', (event) => {
+		event.preventDefault();
+		let btn = $(this);btn.attr('disabled', true);
+		let name = document.getElementById("product-filter-form").elements.namedItem('name').value;
+		let code = document.getElementById("product-filter-form").elements.namedItem('code').value;
+		let color = document.getElementById("product-filter-form").elements.namedItem('color').value;
 
-		document.getElementById('product-image-show').innerHTML = htmlImage;
-		document.getElementById('product-image-show').style.display = 'block';
-		
-	    $('#imagePageNumber').text('' + (page + 1) + ' de ' + Math.ceil(images.length / pageSize));
-	};
+		$.ajax({
+			url: "http://localhost:3000/filter?name="+name+"&code="+code+"&color="+color+"",
+			method: 'get',
+			success: (response) => {
+				if(response.unauthorized){
+					alert(response.unauthorized);
+					return window.location.href = '/login';
+				};
 
-	function saleButtonsPaging(){
-	    $('#imageNext').prop('disabled', images.length <= pageSize || page >= images.length / pageSize - 1);
-	    $('#imagePrevious').prop('disabled', images.length <= pageSize || page == 0);
-	};
+				let products = response.products;
+				let pageSize = 10;
+				let page = 0;
 
-	$(() => {
-	    $('#imageNext').click(() => {
-	        if(page < images.length / pageSize - 1){
-	            page++;
-	            paging();
-	            saleButtonsPaging();
-	        };
-	    });
-	    $('#imagePrevious').click(() => {
-	        if(page > 0){
-	            page--;
-	            paging();
-	            saleButtonsPaging();
-	        };
-	    });
-	    paging();
-	    saleButtonsPaging();
+				function paging(){
+					if(products.length){
+						renderProducts(products, pageSize, page);
+					} else {
+						clearProductTable(response.location);
+					};
+				};
+
+				btn.attr('disabled', false);
+
+				function buttonsPaging(){
+					$('#productNext').prop('disabled', products.length <= pageSize || page >= products.length / pageSize - 1);
+					$('#productPrevious').prop('disabled', products.length <= pageSize || page == 0);
+				};
+
+				$(function(){
+				    $('#productNext').click(function(){
+				        if(page < products.length / pageSize - 1){
+				            page++;
+				            paging();
+				            buttonsPaging();
+				        };
+				    });
+				    $('#productPrevious').click(function(){
+				        if(page > 0){
+				            page--;
+				            paging();
+				            buttonsPaging();
+				        };
+				    });
+				    paging();
+				    buttonsPaging();
+				});
+			}
+		});
+	});
+});
+
+function displayProductFilterForm(form, location){
+	css.displayForm(form);
+	// productCategoryList(form, location);
+	productColorList(form, location);
+};
+
+function showProduct(id){
+	$.ajax({
+		url: 'localhost:3000/id/'+id,
+		method: 'get',
+		success: (response) => {
+			if(response.unauthorized){
+				alert(response.unauthorized);
+				window.location.href = '/login';
+				return;
+			};
+
+			let html = "";
+			html += "<tr>";
+			html += "<td>"+response.product[0].code+"</td>";
+			html += "<td>"+response.product[0].name+"</td>";
+			html += "<td>"+response.product[0].size+"</td>";
+			html += "<td>"+response.product[0].color+"</td>";
+			html += "<td><a onclick='productAddImage("+response.product[0].id+")'>add img</a></td>";
+			html += "<td><a onclick='hideProduct()'>Esconder</a></td>";
+			html += "</tr>";
+
+			document.getElementById('product-show-tbody').innerHTML = html;
+			document.getElementById('product-show-box').style.display = 'block';
+
+			if(response.product[0].images.length){
+				productImagePagination(response.product[0].images, response.product[0].id);
+			} else {
+				document.getElementById('product-image-show').innerHTML = "SEM IMAGENS";
+				document.getElementById('imagePageNumber').innerHTML = '0';
+				document.getElementById('imagePrevious').disabled = true;
+				document.getElementById('imageNext').disabled = true;
+			};
+		}
 	});
 };
